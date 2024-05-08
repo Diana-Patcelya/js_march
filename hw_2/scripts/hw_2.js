@@ -42,35 +42,34 @@ console.log(book_3)
 
 
 let bookAuthors_1 = {
-  title: 'The Secret Garden',
-  pageCount: 300,
-  genre: 'Children\'s Literature',
-  authors :{
-   name: 'Frances Hodgson Burnett',
-   age: 53
-  }
-}
+ title: 'The Secret Garden',
+ pageCount: 300,
+ genre: 'Children\'s Literature',
+ authors: [{
+  name: 'Frances Hodgson Burnett',
+  age: 53
+ }]
+};
+
 let bookAuthors_2 = {
-  title: '1984',
-  pageCount: 328,
-  genre: 'Dystopian Fiction',
-  authors :{
-   name: 'George Orwell',
-   age: 46
- }
+ title: '1984',
+ pageCount: 328,
+ genre: 'Dystopian Fiction',
+ authors: [{
+  name: 'George Orwell',
+  age: 46
+ }]
+};
 
-}
-
-let bookAuthors_3 ={
-  title: 'To Kill a Mockingbird',
-  pageCount: 281,
-  genre: 'Southern Gothic',
-  authors :{
-   name: 'Harper Lee',
-   age: 89
- }
-
-}
+let bookAuthors_3 = {
+ title: 'To Kill a Mockingbird',
+ pageCount: 281,
+ genre: 'Southern Gothic',
+ authors: [{
+  name: 'Harper Lee',
+  age: 89
+ }]
+};
 console.log(bookAuthors_1)
 console.log(bookAuthors_2)
 console.log(bookAuthors_3)
