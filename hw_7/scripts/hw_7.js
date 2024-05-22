@@ -1,5 +1,3 @@
-
-// Через Array.prototype. створити власний foreach, filter, map
 console.log('****************************************************')
 // - Створити функцію конструктор для об'єктів User з полями id, name, surname , email, phone
 // створити пустий масив, наповнити його 10 об'єктами new User(....)
@@ -236,3 +234,49 @@ if (foundCinderella) {
 } else {
     console.log(`${prince.name} не знайшов попелюшку (метод find)`);
 }
+
+console.log('****************************************************')
+
+// Через Array.prototype. створити власний foreach, filter, map
+
+Array.prototype.myEach = function(callback) {
+    for (let i = 0; i < this.length; i++) {
+        callback(this[i], i, this);
+    }
+};
+let arr = ['Lorem Ipsum', 'is simply dummy', 'text of the printing', 'and typesetting industry'];
+arr.myEach(function(word) {
+    console.log(word);
+});
+console.log('_________________________')
+
+Array.prototype.myFilter = function(callback) {
+    const arr = [];
+    for (let i = 0; i < this.length; i++) {
+        if (callback(this[i], i, this)) {
+            arr.push(this[i]);
+        }
+    }
+    return arr;
+};
+const numbers = [1, 20, 30, 80, 2, 9, 3];
+const newNum = numbers.myFilter(function(n) {
+    return n >= 10;
+});
+console.log(newNum);
+
+console.log('_________________________')
+
+Array.prototype.myMap = function(callback) {
+    const arr = [];
+    for (let i = 0; i < this.length; i++) {
+        arr.push(callback(this[i], i, this));
+    }
+    return arr;
+};
+const numbers_2 = [10, 20, 30, 40];
+const stringsNumbers = numbers_2.myMap(function(num) {
+    return String(num);
+});
+console.log(stringsNumbers);
+console.log('_________________________')
