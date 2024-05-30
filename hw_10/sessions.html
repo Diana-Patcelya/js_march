@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sessions Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid cornflowerblue;
+        }
+
+        th {
+            background-image: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Session History</h1>
+<table class="sessions-table">
+    <thead>
+    <tr>
+        <th>Date Visited</th>
+    </tr>
+    </thead>
+    <tbody id="sessions-container">
+    </tbody>
+</table>
+<script>
+    let sessions = localStorage.getItem('sessions');
+    if (sessions) {
+        sessions = JSON.parse(sessions);
+        const sessionsContainer = document.getElementById('sessions-container');
+
+        sessions.forEach(session => {
+            const sessionRow = document.createElement('tr');
+            const sessionData = document.createElement('td');
+            sessionData.innerText = session;
+            sessionRow.appendChild(sessionData);
+            sessionsContainer.appendChild(sessionRow);
+        });
+    } else {
+        const sessionsContainer = document.getElementById('sessions-container');
+        const noSessionsRow = document.createElement('tr');
+        const noSessionsData = document.createElement('td');
+        noSessionsData.colSpan = 1;
+        noSessionsData.innerText = 'No sessions found.';
+        noSessionsRow.appendChild(noSessionsData);
+        sessionsContainer.appendChild(noSessionsRow);
+    }
+</script>
+</body>
+</html>
