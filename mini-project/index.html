@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
+    body, h1 {
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        background-color: #f4f4f4;
+    }
+    h1{
+        text-align: left;
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+    #usersList {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .user {
+        width: 40vw;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        text-align: center;
+    }
+    .button {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        padding: 10px;
+        text-align: center;
+        background-color: cornflowerblue;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+
+    }
+</style>
+</head>
+<body>
+<h1><b>Users List</b></h1>
+<div class="user-container" id="usersList"></div>
+<script src="scripts/index.js"></script>
+</body>
+</html>
