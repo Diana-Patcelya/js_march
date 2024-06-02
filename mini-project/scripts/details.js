@@ -19,18 +19,29 @@ if (userId) {
         .then(user => {
             const userDetails = document.getElementById('userDetails');
             const userInfo = `
-        <p>ID: ${user.id}</p>
-        <p>Name: ${user.name}</p>
-        <p>Username: ${user.username}</p>
-        <p>Email: ${user.email}</p>
-        <p>Address: ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
-        <p>Phone: ${user.phone}</p>
-        <p>Website: ${user.website}</p>
-        <p>Company: ${user.company.name}, ${user.company.catchPhrase}, ${user.company.bs}</p>
-      `;
+                <p><strong>ID:</strong> ${user.id}</p>
+                <p><strong>Ім'я:</strong> ${user.name}</p>
+                <p><strong>Username:</strong> ${user.username}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Адреса:</strong> <br>
+                    <strong>Вулиця:</strong> ${user.address.street}, <br>
+                    <strong>Квартира:</strong> ${user.address.suite},<br>
+                    <strong>Місто:</strong> ${user.address.city},<br>
+                    <strong>Поштовий індекс:</strong> ${user.address.zipcode},<br>
+                    <strong>Geo:</strong> ${user.address.geo.lat} ${user.address.geo.lng}
+                </p>
+                <p><strong>Телефон:</strong> ${user.phone}</p>
+                <p><strong>Вебсайт:</strong> ${user.website}</p>
+                <p><strong>Компанія:</strong> ${user.company.name}, ${user.company.catchPhrase}, ${user.company.bs}</p>
+            `;
             userDetails.innerHTML = userInfo;
+
+            const buttonPost = document.getElementById('userButton');
+            buttonPost.addEventListener('click', () => {
+                window.location.href = `post-details.html?userId=${user.id}`;
+            });
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Помилка:', error));
 } else {
     document.getElementById('userDetails').innerText = 'ID користувача не вказано у URL';
 }

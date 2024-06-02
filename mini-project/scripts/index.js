@@ -10,7 +10,7 @@ fetch('http://jsonplaceholder.typicode.com/users')
         console.log(users);
         const usersList = document.getElementById('usersList');
         users.forEach(user => {
-            const userDiv = document.createElement('div'); // Замінено <li> на <div>
+            const userDiv = document.createElement('div');
             userDiv.classList.add('user');
             const userInfo = document.createElement('p');
             userInfo.innerText = `${user.id} - ${user.name}`;
@@ -18,7 +18,7 @@ fetch('http://jsonplaceholder.typicode.com/users')
 
             const button = document.createElement('button');
             button.innerText = 'Details';
-            button.classList.add('button'); // Змінено клас кнопки на .button
+            button.classList.add('button');
             button.addEventListener('click', () => {
                 window.location.href = `details.html?id=${user.id}`;
             });
